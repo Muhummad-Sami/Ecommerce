@@ -23,7 +23,7 @@ This project showcases a premium shopping experience with dynamic product data, 
 * **Frontend:** Next.js (App Router), React, TypeScript
 * **Styling:** Tailwind CSS
 * **Backend:** Next.js API Routes
-* **Database:** MongoDB (Atlas)
+* **FoamSpree:** FoamSpree
 * **State Management:** Zustand
 * **Icons:** lucide-react
 
@@ -35,7 +35,6 @@ This project showcases a premium shopping experience with dynamic product data, 
 src/
  ├── app/                # Pages (App Router)
  ├── components/         # Reusable UI components
- ├── models/             # Mongoose schemas
  ├── lib/                # Database connection
  ├── store/              # Zustand store
  └── styles/             # Global styles
@@ -62,17 +61,7 @@ npm install
 
 ---
 
-### 3. Setup environment variables
-
-Create a `.env.local` file in the root:
-
-```
-MONGODB_URI=your_mongodb_connection_string
-```
-
----
-
-### 4. Run the development server
+### 3. Run the development server
 
 ```
 npm run dev
@@ -112,14 +101,6 @@ POST /api/products
 
 Images are currently loaded from online sources (e.g., Unsplash).
 Make sure image URLs are valid to avoid 404 errors.
-
----
-
-## ⚠️ Notes
-
-* If MongoDB is not connected, the app uses mock data
-* Ensure your MongoDB Atlas cluster is running
-* Add your IP to MongoDB network access
 
 ---
 
