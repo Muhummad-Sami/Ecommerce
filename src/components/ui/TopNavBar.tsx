@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { Search, ShoppingBag, User } from "lucide-react";
 import { useCartStore } from "@/store/useCartStore";
 
+
 export default function TopNavBar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [mounted, setMounted] = useState(false);
