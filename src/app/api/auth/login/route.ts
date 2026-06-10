@@ -19,6 +19,19 @@ export async function POST(req: Request) {
       );
     }
 
+    // ✅ Hardcoded Admin Check
+    if (email === "Sami12@gmail.com" && password === "sami22") {
+      return NextResponse.json({
+        success: true,
+        message: "Admin login successful",
+        user: {
+          id: "admin-sami",
+          name: "Sami Admin",
+          email: "Sami12@gmail.com",
+        },
+      });
+    }
+
     // ✅ Find user
     const user = await User.findOne({ email });
 

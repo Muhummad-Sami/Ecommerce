@@ -6,6 +6,7 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
+  display: "swap",
 });
 
 const bodoniModa = Bodoni_Moda({
@@ -13,11 +14,14 @@ const bodoniModa = Bodoni_Moda({
   subsets: ["latin"],
   style: ["normal", "italic"],
   weight: ["400", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "AESTHETE - Luxury E-Commerce",
-  description: "Modern curation for the refined individual.",
+  description: "Modern curation for the refined individual. Discover luxury fashion, accessories, and curated collections.",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
+  themeColor: "#000000",
 };
 
 export default function RootLayout({

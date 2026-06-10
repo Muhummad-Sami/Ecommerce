@@ -12,19 +12,31 @@
   --color-surface-container: #eeeeee;
   --color-surface-container-low: #f3f3f3;
   --color-surface-container-lowest: #ffffff;
+  --color-surface-container-highest: #e0e0e0;
 
   --color-on-surface: #1a1c1c;
   --color-on-surface-variant: #444748;
 
   --color-secondary: #735c00;
+  --color-secondary-container: #ffe088;
   --color-secondary-fixed: #ffe088;
   --color-secondary-fixed-dim: #e9c349;
 
   --color-outline: #747878;
+  --color-outline-variant: #c4c7c8;
+
+  --color-error: #ba1a1a;
 
   /* Fonts */
   --font-body: "Inter", sans-serif;
   --font-heading: "Bodoni Moda", serif;
+
+  --font-body-md: "Inter", sans-serif;
+  --font-body-lg: "Inter", sans-serif;
+  --font-label-caps: "Inter", sans-serif;
+  --font-headline-md: "Bodoni Moda", serif;
+  --font-headline-lg: "Bodoni Moda", serif;
+  --font-button: "Inter", sans-serif;
 
   /* Spacing */
   --spacing-section-gap: 120px;
@@ -40,6 +52,16 @@
 :root {
   --background: var(--color-surface);
   --foreground: var(--color-on-surface);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -83,6 +105,33 @@ body {
     letter-spacing: 0.05em;
     font-weight: 500;
   }
+
+  .text-display-xl {
+    font-size: clamp(40px, 8vw, 96px);
+    font-family: var(--font-heading);
+    line-height: 0.95;
+  }
+
+  .text-display-xl-mobile {
+    font-size: clamp(32px, 10vw, 56px);
+    font-family: var(--font-heading);
+    line-height: 0.95;
+  }
+}
+
+/* =========================
+   REVEAL ON SCROLL ANIMATIONS
+========================= */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* =========================
@@ -138,4 +187,112 @@ body {
 /* Vertical text */
 .vertical-text {
   writing-mode: vertical-rl;
+}
+
+/* =========================
+   MOBILE MENU OVERLAY
+========================= */
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-menu-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 101;
+  width: 100%;
+  max-width: 380px;
+  height: 100dvh;
+  background: var(--color-surface-container-lowest);
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow-y: auto;
+}
+
+.mobile-menu-panel.active {
+  transform: translateX(0);
+}
+
+/* =========================
+   VIDEO MODAL
+========================= */
+.video-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.4s ease;
+}
+
+.video-modal-overlay video {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 2px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* =========================
+   RESPONSIVE ADMIN SIDEBAR
+========================= */
+@media (max-width: 1023px) {
+  .admin-sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .admin-sidebar.open {
+    transform: translateX(0);
+  }
+  .admin-main {
+    margin-left: 0 !important;
+  }
+}
+
+/* =========================
+   SMOOTH PAGE TRANSITIONS
+========================= */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* =========================
+   RESPONSIVE TYPOGRAPHY
+========================= */
+@media (max-width: 640px) {
+  .text-headline-lg {
+    font-size: 32px;
+  }
+  .text-headline-md {
+    font-size: 24px;
+  }
 }
