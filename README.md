@@ -87,71 +87,72 @@ This e-commerce platform provides a complete shopping experience with product br
 ## ?? Project Structure
 
 ``
-.
-+-- public/                          # Static files
-�   +-- images/
-�       +-- journal/                 # Blog/journal images
-�       +-- lookbook/                # Marketing lookbook images
-�       +-- products/                # Product images
-�
-+-- src/
-�   +-- app/                         # Next.js App Router (Pages & Layouts)
-�   �   +-- globals.css              # Global styles
-�   �   +-- layout.tsx               # Root layout
-�   �   +-- page.tsx                 # Home page
-�   �   +-- admin/                   # Admin dashboard
-�   �   +-- api/                     # API endpoints
-�   �   �   +-- auth/                # Authentication routes
-�   �   �   �   +-- login/
-�   �   �   �   +-- signup/
-�   �   �   +-- products/            # Product management endpoints
-�   �   +-- auth/                    # Authentication pages
-�   �   +-- cart/                    # Shopping cart page
-�   �   +-- checkout/                # Checkout page
-�   �   +-- collections/             # Product collections
-�   �   +-- contact/                 # Contact page (Formspree)
-�   �   +-- login/                   # Login page
-�   �   +-- product/                 # Individual product pages
-�   �   +-- signup/                  # Registration page
-�   �   +-- story/                   # Brand story page
-�   �
-�   +-- components/                  # Reusable React components
-�   �   +-- home/                    # Homepage sections
-�   �   �   +-- ArtisanSection.tsx
-�   �   �   +-- BrandPhilosophy.tsx
-�   �   �   +-- FeaturedCollections.tsx
-�   �   �   +-- HeroSection.tsx
-�   �   �   +-- Journal.tsx
-�   �   �   +-- Lookbook.tsx
-�   �   �   +-- Newsletter.tsx
-�   �   �   +-- Timeline.tsx
-�   �   +-- ui/                      # UI components
-�   �       +-- Footer.tsx
-�   �       +-- TopNavBar.tsx
-�   �
-�   +-- lib/                         # Utilities and configurations
-�   �   +-- auth.ts                  # Authentication logic
-�   �   +-- mongodb.ts               # MongoDB connection
-�   �   +-- types.ts                 # TypeScript type definitions
-�   �
-�   +-- models/                      # Database models
-�   �   +-- User.ts                  # User schema/model
-�   �
-�   +-- store/                       # Zustand state management
-�       +-- orderStore.ts            # Order state
-�       +-- useCartStore.ts          # Shopping cart state
-�
-+-- node_modules/                    # Dependencies
-+-- next.config.ts                   # Next.js configuration
-+-- tsconfig.json                    # TypeScript configuration
-+-- tailwind.config.ts               # Tailwind CSS configuration
-+-- postcss.config.mjs               # PostCSS configuration
-+-- package.json                     # Project dependencies
-+-- package-lock.json                # Dependency lock file
-+-- README.md                        # This file
-``
-
----
+```
+e-commerce-website/
+│
+├── public/
+│   └── images/
+│       ├── journal/
+│       ├── lookbook/
+│       └── products/
+│
+├── src/
+│   ├── app/
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   ├── admin/
+│   │   ├── api/
+│   │   │   ├── auth/
+│   │   │   │   ├── login/
+│   │   │   │   └── signup/
+│   │   │   └── products/
+│   │   ├── auth/
+│   │   ├── cart/
+│   │   ├── checkout/
+│   │   ├── collections/
+│   │   ├── contact/
+│   │   ├── login/
+│   │   ├── product/
+│   │   ├── signup/
+│   │   └── story/
+│   │
+│   ├── components/
+│   │   ├── home/
+│   │   │   ├── ArtisanSection.tsx
+│   │   │   ├── BrandPhilosophy.tsx
+│   │   │   ├── FeaturedCollections.tsx
+│   │   │   ├── HeroSection.tsx
+│   │   │   ├── Journal.tsx
+│   │   │   ├── Lookbook.tsx
+│   │   │   ├── Newsletter.tsx
+│   │   │   └── Timeline.tsx
+│   │   │
+│   │   └── ui/
+│   │       ├── Footer.tsx
+│   │       └── TopNavBar.tsx
+│   │
+│   ├── lib/
+│   │   ├── auth.ts
+│   │   ├── mongodb.ts
+│   │   └── types.ts
+│   │
+│   ├── models/
+│   │   └── User.ts
+│   │
+│   └── store/
+│       ├── orderStore.ts
+│       └── useCartStore.ts
+│
+├── node_modules/
+├── next.config.ts
+├── tsconfig.json
+├── tailwind.config.ts
+├── postcss.config.mjs
+├── package.json
+├── package-lock.json
+└── README.md
+```
 
 ## ?? Installation & Setup
 
