@@ -111,64 +111,56 @@ This e-commerce platform provides a complete shopping experience including produ
 ## Project Structure
 
 ```
-e-commerce-website/
-├── public/
-│   └── images/
-│       ├── journal/
-│       ├── lookbook/
-│       └── products/
+ecommerce-fullstack-design/
 │
-├── src/
-│   ├── app/
-│   │   ├── globals.css
-│   │   ├── layout.tsx
-│   │   ├── page.tsx
-│   │   ├── admin/               # Admin dashboard (protected)
-│   │   ├── api/
-│   │   │   ├── auth/
-│   │   │   │   ├── login/
-│   │   │   │   └── signup/
-│   │   │   └── products/
-│   │   ├── cart/
-│   │   ├── checkout/
-│   │   ├── collections/
-│   │   ├── contact/
-│   │   ├── login/
-│   │   ├── product/
-│   │   ├── signup/
-│   │   └── story/
-│   │
-│   ├── components/
-│   │   ├── home/
-│   │   │   ├── ArtisanSection.tsx
-│   │   │   ├── BrandPhilosophy.tsx
-│   │   │   ├── FeaturedCollections.tsx
-│   │   │   ├── HeroSection.tsx
-│   │   │   ├── Journal.tsx
-│   │   │   ├── Lookbook.tsx
-│   │   │   ├── Newsletter.tsx
-│   │   │   └── Timeline.tsx
-│   │   └── ui/
-│   │       ├── Footer.tsx
-│   │       └── TopNavBar.tsx
-│   │
-│   ├── lib/
-│   │   ├── auth.ts
-│   │   ├── mongodb.ts
-│   │   └── types.ts
-│   │
-│   ├── models/
-│   │   └── User.ts
-│   │
-│   └── store/
-│       ├── orderStore.ts
-│       └── useCartStore.ts
+├── backend/
+│ ├── models/
+│ │ └── Product.js
+│ │ └── User.js
+│ ├── routes/
+│ │ ├── products.js
+│ │ └── auth.js
+│ ├── middleware/
+│ │ └── auth.js
+│ ├── config/
+│ │ └── db.js
+│ ├── server.js
+│ ├── .env
+│ └── package.json
 │
-├── next.config.ts
-├── tsconfig.json
-├── tailwind.config.ts
-├── postcss.config.mjs
-└── package.json
+├── frontend/
+│ ├── public/
+│ │ └── images/
+│ ├── src/
+│ │ ├── components/
+│ │ │ ├── common/
+│ │ │ ├── home/
+│ │ │ ├── products/
+│ │ │ ├── cart/
+│ │ │ └── admin/
+│ │ ├── pages/
+│ │ │ ├── Home.jsx
+│ │ │ ├── ProductList.jsx
+│ │ │ ├── ProductDetails.jsx
+│ │ │ ├── Cart.jsx
+│ │ │ ├── Login.jsx
+│ │ │ ├── Signup.jsx
+│ │ │ └── Admin.jsx
+│ │ ├── context/
+│ │ │ ├── CartContext.jsx
+│ │ │ └── AuthContext.jsx
+│ │ ├── services/
+│ │ │ └── api.js
+│ │ ├── App.jsx
+│ │ ├── index.css (Tailwind)
+│ │ └── main.jsx
+│ ├── .env
+│ ├── tailwind.config.js
+│ ├── package.json
+│ └── vite.config.js (or CRA)
+│
+├── README.md
+└── .gitignore
 ```
 
 ---
