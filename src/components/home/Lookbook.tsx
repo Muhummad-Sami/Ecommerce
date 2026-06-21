@@ -9,7 +9,7 @@ export default function Lookbook() {
       <div className="flex overflow-x-auto gap-8 px-margin-mobile md:px-margin-desktop hide-scrollbar pb-10">
         <div className="min-w-[80vw] md:min-w-[45vw] lg:min-w-[30vw] aspect-2/3 relative group shrink-0">
           <Image 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC677zl1fZpF1XXUs4nMkZFxNJmwDVYNuK3uADwnpU7LvRYPgzlF4_47c4kwz2vqGf9o--nvP1ol83pqX3_khjN8WgKEj6HBQ7OZPYTR7L1cDnICXWoUeqjfZs9xcHfxVDgEzu9QzY5stLHK1U8-6lHcVWgoRxjAk_ObO5kcI-rRZUoZO853ZoCPDuTN2KR3k81HCGQt4hYAhtj6IcVRnsrVMBcC0PTItWBo0myxAOkWFUZ5LklQ5n0GNJK2hqSstq51kkKQG3ESjke"
+            src="https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=800&h=1200&fit=crop"
             alt="Lookbook entry" 
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -25,7 +25,7 @@ export default function Lookbook() {
         </div>
         <div className="min-w-[80vw] md:min-w-[45vw] lg:min-w-[30vw] aspect-2/3 relative group shrink-0">
           <Image 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQHScQ3NV64gmHmVPYBU-cY7NZpdXpepyaQzu1rCIsVevpr8gigSXPAvcirB3-W2zmp7AvTksmKsF_pa_-a9pEZx9Yj0YUUjLngt5rLXX4JLeU0-aZ_Y5lnVNCM5e1XNwuSzpummpYX-k-KZXelsqRK2mhnUGNVnbl_iTjvg7sZkO1xe0PJJNa-KanKG5Goy6wHCpdWtxzXPnzHl2BBbIaaQxczrTpI-oLzIpQo0CsRKdSlOfQ_lu5eJmLEk7z7roaNH8vle6gZM_Z"
+            src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&h=1200&fit=crop"
             alt="Lookbook entry" 
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -41,7 +41,7 @@ export default function Lookbook() {
         </div>
         <div className="min-w-[80vw] md:min-w-[45vw] lg:min-w-[30vw] aspect-2/3 relative group shrink-0">
           <Image 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK4OgEnU6i6TFCCGB0G4sq_Ae-d6m_-CrtiY8jxH5hHdYMlij3M4cS4QRh85Su1lf1lHLWnigsSjKYxo6FWan4-J_DRK_mWurptraDiqJA8euRr5Z6EaUiXRss3k60UJ49PDC7x4VaxkE7qnNOqFx46Pt2b82u5tYlwyaxVrrRcW3IsCEjZkKvyr_l99zRXy0czISxZ_PqerAkChekIVNoNhEr4il5QVmgpxX6k8OwEHp9fsv1DtbLzmcsFgTwabpPH1MrbkY-GLuG"
+            src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&h=1200&fit=crop"
             alt="Lookbook entry" 
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -57,7 +57,7 @@ export default function Lookbook() {
         </div>
         <div className="min-w-[80vw] md:min-w-[45vw] lg:min-w-[30vw] aspect-2/3 relative group shrink-0">
           <Image 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1r-4otgG-JMNYjOvtYRA6PFUogoucauamKynGJHMRrG0z_tfoou2204D1-rGOBp4HxyHrUSJvw1wou5O6qUTAG0hfdVDWHWkTECxiGSyFWRe08GcCk0XE7tAIRk6xLvzFDAzh_6oXfXO-lMkF6WSV0FWnTJZdE1EkbyR8h24qWdRjTvqgpqBjk0UAYA3yswkru7-llLjLiym1CXKXq7NbVTGEGAP9Oo_eHo1Rq0sqedsV-YzWfzfytQIDtEX0tH8uUca8RSjHSEdj"
+            src="https://images.unsplash.com/photo-1595859707802-0b7b5d2ba26e?w=800&h=1200&fit=crop"
             alt="Lookbook entry" 
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

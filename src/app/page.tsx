@@ -6,35 +6,37 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Play, X } from "lucide-react";
-
-// These match the product IDs in /api/products/data.ts
-const FEATURED_PRODUCTS = [
-  {
-    id: "1",
-    tag: "ESSENTIALS",
-    name: "Classic Leather Tote",
-    price: "$450.00",
-    image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=600&h=800&fit=crop",
-  },
-  {
-    id: "2",
-    tag: "EVENING COLLECTION",
-    name: "Silk Evening Scarf",
-    price: "$120.00",
-    image: "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=600&h=800&fit=crop",
-  },
-  {
-    id: "4",
-    tag: "WINTER SERIES",
-    name: "Cashmere Turtleneck",
-    price: "$350.00",
-    image: "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=600&h=800&fit=crop",
-  },
-];
+import { useRouter } from "next/navigation";
+import { useCartStore } from "@/store/useCartStore";
+import { isLoggedIn, savePendingCartItem } from "@/lib/auth";
+import { IProduct } from "@/lib/types";
 
 export default function Home() {
   const revealRefs = useRef<(HTMLDivElement | HTMLElement)[]>([]);
   const [videoOpen, setVideoOpen] = useState(false);
+  const [featuredProducts, setFeaturedProducts] = useState<IProduct[]>([]);
+  const router = useRouter();
+  const addItem = useCartStore((state) => state.addItem);
+
+  useEffect(() => {
+    fetch("/api/products")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.data) {
+          setFeaturedProducts(data.data.filter((p: IProduct) => p.isFeatured).slice(0, 6));
+        }
+      });
+  }, []);
+
+  const handleInstantCheckout = (product: IProduct) => {
+    if (!isLoggedIn()) {
+      savePendingCartItem({ product, quantity: 1, goToCheckout: true });
+      router.push(`/login?redirect=${encodeURIComponent("/checkout")}`);
+      return;
+    }
+    addItem(product, 1);
+    router.push("/checkout");
+  };
 
   useEffect(() => {
     const observerOptions = {
@@ -67,26 +69,40 @@ export default function Home() {
     <>
       <TopNavBar />
       <main>
-        {/* Cinematic Hero Section */}
+        {/* Cinematic Hero Section with Video Background */}
         <section className="relative h-[100dvh] w-full flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0">
-            <Image 
-              src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600&h=900&fit=crop" 
-              alt="Cinematic high fashion" 
-              fill 
-              className="object-cover scale-105"
-              priority
-              sizes="100vw"
-            />
-            <div className="absolute inset-0 bg-black/20"></div>
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              className="absolute inset-0 w-full h-full object-cover scale-105"
+              poster="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600&h=900&fit=crop"
+            >
+              <source src="/videos/hero.mp4" type="video/mp4" />
+            </video>
+
+            <div className="absolute inset-0 bg-black/40"></div>
           </div>
-          <div className="relative z-10 text-center px-margin-mobile">
-            <h1 className="font-headline-lg text-display-xl-mobile md:text-display-xl text-white mb-8 md:mb-10 tracking-tighter uppercase">THE ART OF REFINEMENT</h1>
-            <div className="flex justify-center">
-              <Link href="/collections" className="bg-primary text-on-primary px-8 md:px-10 py-4 md:py-5 font-button text-button uppercase tracking-widest hover:bg-black transition-all duration-300 text-[12px] md:text-[14px]">
+          <div className="relative z-10 text-center px-margin-mobile hero-content">
+            <p className="font-label-caps text-[10px] md:text-[12px] text-white/70 uppercase tracking-[0.4em] mb-6 md:mb-8 hero-subtitle">Autumn / Winter 2026</p>
+            <h1 className="font-headline-lg text-display-xl-mobile md:text-display-xl text-white mb-6 md:mb-8 tracking-tighter uppercase">THE ART OF REFINEMENT</h1>
+            <p className="font-body-lg text-white/60 max-w-lg mx-auto mb-10 md:mb-12 text-[14px] md:text-[16px]">Where heritage craftsmanship meets contemporary vision</p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Link href="/collections" className="bg-white text-black px-8 md:px-10 py-4 md:py-5 font-button text-button uppercase tracking-widest hover:bg-white/90 transition-all duration-300 text-[12px] md:text-[14px]">
                 Shop Collection
               </Link>
+              <Link href="/story" className="border border-white/40 text-white px-8 md:px-10 py-4 md:py-5 font-button text-button uppercase tracking-widest hover:bg-white/10 transition-all duration-300 text-[12px] md:text-[14px]">
+                Our Story
+              </Link>
             </div>
+          </div>
+          {/* Scroll indicator */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 scroll-indicator">
+            <span className="font-label-caps text-[9px] text-white/40 uppercase tracking-[0.3em]">Scroll</span>
+            <div className="w-px h-8 bg-gradient-to-b from-white/40 to-transparent scroll-line"></div>
           </div>
         </section>
 
@@ -94,23 +110,25 @@ export default function Home() {
         <section ref={addToRefs} className="reveal-on-scroll py-16 md:py-section-gap overflow-hidden bg-white">
           <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
             <div className="grid grid-cols-1 md:grid-cols-2 items-stretch min-h-[400px] md:min-h-[700px]">
-              <div className="relative order-2 md:order-1 overflow-hidden group cursor-pointer h-[350px] md:h-auto" onClick={() => setVideoOpen(true)}>
-                <Image 
-                  src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800&h=1000&fit=crop" 
-                  alt="Artisan handiwork" 
-                  fill 
-                  className="object-cover transition-transform duration-1000 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <button className="group/play flex items-center gap-4 text-white">
-                    <span className="w-14 h-14 md:w-16 md:h-16 rounded-full border border-white/40 flex items-center justify-center group-hover/play:scale-110 group-hover/play:bg-white group-hover/play:text-black transition-all duration-500">
-                      <Play size={20} fill="currentColor" />
-                    </span>
-                    <span className="font-label-caps tracking-widest text-[10px] uppercase opacity-0 group-hover/play:opacity-100 transition-opacity duration-500 hidden sm:inline">Watch the Film</span>
-                  </button>
+              <div
+                  className="relative order-2 md:order-1 overflow-hidden group cursor-pointer h-[350px] md:h-auto"
+                  onClick={() => setVideoOpen(true)}
+                >
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                    poster="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800&h=1000&fit=crop"
+                  >
+                    <source
+                      src="/videos/design.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+
                 </div>
-              </div>
               <div className="flex items-center justify-between p-8 md:p-12 lg:p-20 order-1 md:order-2 bg-surface">
                 <div className="max-w-sm">
                   <span className="font-label-caps text-secondary tracking-[0.3em] block mb-6 md:mb-8 uppercase text-[10px]">01. Craftsmanship</span>
@@ -139,24 +157,27 @@ export default function Home() {
             </Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-gutter">
-            {FEATURED_PRODUCTS.map((product) => (
-              <Link href={`/product/${product.id}`} key={product.id} className="group cursor-pointer block">
+            {featuredProducts.map((product) => (
+              <div onClick={() => handleInstantCheckout(product)} key={product._id} className="group cursor-pointer block">
                 <div className="aspect-3/4 overflow-hidden mb-4 md:mb-6 relative">
                   <Image 
-                    src={product.image}
+                    src={product.imageUrl}
                     alt={product.name} 
                     fill 
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
                   />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                    <span className="bg-primary text-on-primary px-6 py-3 font-label-caps text-[10px] tracking-widest uppercase shadow-xl hover:scale-105 transition-transform">FAST CHECKOUT</span>
+                  </div>
                 </div>
                 <div className="text-center">
-                  <p className="font-label-caps text-[10px] text-on-surface-variant mb-2 tracking-widest uppercase">{product.tag}</p>
+                  <p className="font-label-caps text-[10px] text-on-surface-variant mb-2 tracking-widest uppercase">{product.collectionName}</p>
                   <h3 className="font-headline-md text-xl md:text-2xl mb-2">{product.name}</h3>
-                  <p className="font-body-md text-on-surface-variant">{product.price}</p>
+                  <p className="font-body-md text-on-surface-variant">${product.price.toLocaleString()}</p>
                   <div className="w-12 h-px bg-secondary-container mx-auto mt-4 scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </section>
@@ -167,17 +188,26 @@ export default function Home() {
             <h2 className="font-headline-lg border-l border-white/20 pl-6 md:pl-8 uppercase text-2xl md:text-headline-lg">VISUAL DIARY</h2>
           </div>
           <div className="flex overflow-x-auto gap-4 md:gap-8 px-margin-mobile md:px-margin-desktop hide-scrollbar pb-10">
-            {[1, 2, 3, 4].map((i) => (
-              <Link href="/collections" key={i} className="min-w-[75vw] sm:min-w-[60vw] md:min-w-[45vw] lg:min-w-[30vw] aspect-2/3 relative group shrink-0 block">
+            {[
+              { id: 1, image: "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=800&h=1200&fit=crop", title: "Autumn Layering" },
+              { id: 2, image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&h=1200&fit=crop", title: "Evening Silk" },
+              { id: 3, image: "https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=800&h=1200&fit=crop", title: "Winter Down" },
+              { id: 4, image: "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=800&h=1200&fit=crop", title: "Summer Linen" },
+              { id: 5, image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&h=1200&fit=crop", title: "Resort Prints" }
+            ].map((look) => (
+              <Link href="/collections" key={look.id} className="min-w-[75vw] sm:min-w-[60vw] md:min-w-[45vw] lg:min-w-[30vw] aspect-2/3 relative group shrink-0 block">
                 <Image 
-                  src={`https://images.unsplash.com/photo-${i === 1 ? '1490481651871-ab68de25d43d' : i === 2 ? '1445205170230-053b83016050' : i === 3 ? '1469334031218-e382a71b716b' : '1496747611176-843222e1e57c'}?w=800&h=1200&fit=crop`} 
-                  alt="Lookbook entry" 
+                  src={look.image} 
+                  alt={look.title} 
                   fill 
-                  className="object-cover"
+                  className="object-cover transition-transform duration-1000 group-hover:scale-105"
                   sizes="(max-width: 640px) 75vw, (max-width: 768px) 60vw, (max-width: 1024px) 45vw, 30vw"
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500 flex items-end p-6">
-                  <span className="font-label-caps text-[10px] text-white uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-500">Explore Look {i}</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end p-6">
+                  <div>
+                    <span className="font-label-caps text-[10px] text-white/70 uppercase tracking-widest block mb-2">Look 0{look.id}</span>
+                    <span className="font-headline-md text-xl text-white">{look.title}</span>
+                  </div>
                 </div>
               </Link>
             ))}
@@ -271,7 +301,7 @@ export default function Home() {
               <Link href="/story" className="group cursor-pointer block">
                 <div className="aspect-square overflow-hidden mb-6 md:mb-8 relative">
                   <Image 
-                    src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=600&fit=crop" 
+                    src="/images/journal/fabric.png" 
                     alt="Journal visual" 
                     fill 
                     className="object-cover transition-transform duration-1000 group-hover:scale-105"
@@ -286,7 +316,7 @@ export default function Home() {
               <Link href="/story" className="group cursor-pointer block">
                 <div className="aspect-square overflow-hidden mb-6 md:mb-8 relative">
                   <Image 
-                    src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=600&h=600&fit=crop" 
+                    src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=800&h=800&fit=crop" 
                     alt="Journal visual" 
                     fill 
                     className="object-cover transition-transform duration-1000 group-hover:scale-105"
@@ -348,7 +378,7 @@ export default function Home() {
               controls
               playsInline
               className="w-full rounded-sm"
-              src="https://videos.pexels.com/video-files/6567037/6567037-sd_640_360_30fps.mp4"
+              src="https://assets.mixkit.co/videos/preview/mixkit-model-with-fashionable-makeup-and-accessories-34865-large.mp4"
             >
               Your browser does not support video playback.
             </video>

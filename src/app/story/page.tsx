@@ -11,10 +11,10 @@ export default function StoryPage() {
       <TopNavBar />
       <main className="pt-16 md:pt-20">
         {/* Hero Section */}
-        <section className="relative h-[60vh] md:h-[80vh] lg:h-[90vh] w-full flex items-center justify-center overflow-hidden">
+        <section className="relative h-[60vh] md:h-[80vh] lg:h-[100vh] w-full flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0">
             <Image 
-              src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1600&h=900&fit=crop" 
+              src="/images/products/story.png" 
               alt="Brand Hero" 
               fill 
               className="object-cover grayscale brightness-75 scale-105"
@@ -47,7 +47,7 @@ export default function StoryPage() {
             <div className="md:col-span-7">
               <div className="relative aspect-4/5 overflow-hidden group grayscale hover:grayscale-0 transition-all duration-1000">
                 <Image 
-                  src="https://images.unsplash.com/photo-1544465544-1b71aee9dfa3?w=800&h=1000&fit=crop" 
+                  src="/images/products/coat.png" 
                   alt="Craftsmanship" 
                   fill 
                   className="object-cover"
@@ -98,9 +98,9 @@ export default function StoryPage() {
         </section>
 
         {/* Full Width Imagery */}
-        <section className="w-full h-[300px] md:h-[500px] lg:h-[600px] relative">
+        <section className="w-full h-[300px] md:h-[500px] lg:h-[680px] relative">
           <Image 
-            src="https://images.unsplash.com/photo-1506443432602-ac2fcd6f54e0?w=1600&h=600&fit=crop" 
+            src="/images/products/craft.png" 
             alt="Brand Aesthetic" 
             fill 
             className="object-cover"

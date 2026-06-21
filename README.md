@@ -87,6 +87,7 @@ This e-commerce platform provides a complete shopping experience with product br
 ## ?? Project Structure
 
 ``
+<<<<<<< HEAD
 ```
 e-commerce-website/
 â”‚
@@ -153,6 +154,73 @@ e-commerce-website/
 â”œâ”€â”€ package-lock.json
 â””â”€â”€ README.md
 ```
+=======
+.
++-- public/                          # Static files
+¦   +-- images/
+¦       +-- journal/                 # Blog/journal images
+¦       +-- lookbook/                # Marketing lookbook images
+¦       +-- products/                # Product images
+¦
++-- src/
+¦   +-- app/                         # Next.js App Router (Pages & Layouts)
+¦   ¦   +-- globals.css              # Global styles
+¦   ¦   +-- layout.tsx               # Root layout
+¦   ¦   +-- page.tsx                 # Home page
+¦   ¦   +-- admin/                   # Admin dashboard
+¦   ¦   +-- api/                     # API endpoints
+¦   ¦   ¦   +-- auth/                # Authentication routes
+¦   ¦   ¦   ¦   +-- login/
+¦   ¦   ¦   ¦   +-- signup/
+¦   ¦   ¦   +-- products/            # Product management endpoints
+¦   ¦   +-- auth/                    # Authentication pages
+¦   ¦   +-- cart/                    # Shopping cart page
+¦   ¦   +-- checkout/                # Checkout page
+¦   ¦   +-- collections/             # Product collections
+¦   ¦   +-- contact/                 # Contact page (Formspree)
+¦   ¦   +-- login/                   # Login page
+¦   ¦   +-- product/                 # Individual product pages
+¦   ¦   +-- signup/                  # Registration page
+¦   ¦   +-- story/                   # Brand story page
+¦   ¦
+¦   +-- components/                  # Reusable React components
+¦   ¦   +-- home/                    # Homepage sections
+¦   ¦   ¦   +-- ArtisanSection.tsx
+¦   ¦   ¦   +-- BrandPhilosophy.tsx
+¦   ¦   ¦   +-- FeaturedCollections.tsx
+¦   ¦   ¦   +-- HeroSection.tsx
+¦   ¦   ¦   +-- Journal.tsx
+¦   ¦   ¦   +-- Lookbook.tsx
+¦   ¦   ¦   +-- Newsletter.tsx
+¦   ¦   ¦   +-- Timeline.tsx
+¦   ¦   +-- ui/                      # UI components
+¦   ¦       +-- Footer.tsx
+¦   ¦       +-- TopNavBar.tsx
+¦   ¦
+¦   +-- lib/                         # Utilities and configurations
+¦   ¦   +-- auth.ts                  # Authentication logic
+¦   ¦   +-- mongodb.ts               # MongoDB connection
+¦   ¦   +-- types.ts                 # TypeScript type definitions
+¦   ¦
+¦   +-- models/                      # Database models
+¦   ¦   +-- User.ts                  # User schema/model
+¦   ¦
+¦   +-- store/                       # Zustand state management
+¦       +-- orderStore.ts            # Order state
+¦       +-- useCartStore.ts          # Shopping cart state
+¦
++-- node_modules/                    # Dependencies
++-- next.config.ts                   # Next.js configuration
++-- tsconfig.json                    # TypeScript configuration
++-- tailwind.config.ts               # Tailwind CSS configuration
++-- postcss.config.mjs               # PostCSS configuration
++-- package.json                     # Project dependencies
++-- package-lock.json                # Dependency lock file
++-- README.md                        # This file
+``
+
+---
+>>>>>>> 43f6d02 (New products added)
 
 ## ?? Installation & Setup
 
@@ -165,7 +233,12 @@ e-commerce-website/
 ### Step 1: Clone the Repository
 
 ``ash
+<<<<<<< HEAD
 git clone https://github.com/Muhummad-Sami/Ecommerce.git
+=======
+git clone https://github.com/your-username/ecom-luxury.git
+cd ecom-luxury
+>>>>>>> 43f6d02 (New products added)
 ``
 
 ### Step 2: Install Dependencies
@@ -342,6 +415,7 @@ This project is open-source and available under the **MIT License**. See LICENSE
 
 Developed by **Sami Abid**
 
+<<<<<<< HEAD
 ## ?? Acknowledgments
 
 - Next.js and React communities
@@ -351,4 +425,21 @@ Developed by **Sami Abid**
 
 ---
 
+=======
+- GitHub: [your-github-profile](https://github.com/your-username)
+- Portfolio: [your-portfolio](https://yourportfolio.com)
+- LinkedIn: [your-linkedin](https://linkedin.com/in/your-profile)
+
+---
+
+## ?? Acknowledgments
+
+- Next.js and React communities
+- MongoDB documentation
+- Tailwind CSS for beautiful styling
+- Zustand for simple state management
+
+---
+
+>>>>>>> 43f6d02 (New products added)
 ? **If you like this project, please star the repository!** It helps more developers discover this work.

@@ -9,7 +9,7 @@ export default function ArtisanSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 items-stretch min-h-[700px]">
           <div className="relative order-2 md:order-1 overflow-hidden group cursor-pointer">
             <Image 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_5WsRTF_njNkFe9y4aVJRb3NjJhUNytpDgDCTaBUvcdTbxETvmP_CRGm-yJNNr0MbTzweDv-iDmvHBTtOfTqsf7D4dr-l2J7FYYc0zZCcbIspP15FPgbLZ8t8z6QPd63d6LfnKHw6owWH3AqXzXX6JLEn8Or2_mS9kz1lqmmVhU5JUnKmMEDtlmvMUBHJH138pdDgaL6m8ELHJuArQNmEUySq4khOzIh8v2at0wnp_VevcEFTN0lhtsozIXLltPfUR5Fh1jdnzJJ8"
+              src="https://images.unsplash.com/photo-1487215078519-e21cc028cb29?w=1000&h=700&fit=crop"
               alt="Artisan handiwork" 
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

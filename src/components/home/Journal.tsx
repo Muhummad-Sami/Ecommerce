@@ -18,7 +18,7 @@ export default function Journal() {
           <article className="group cursor-pointer">
             <div className="aspect-square overflow-hidden mb-8 relative">
               <Image 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWx_SiIyaYPZqn8sUrP_-iOuDJkja9uGQweQQuXyhsYP1PdkZLBOeHpTsAj5PT7NieFf_5yw-e0JPahM7O0D4PC1ETCSIbtYuyLi6KUk4u_kfb7ModjgeNqHIA2-N27A9ce5qeYU8FJML-yUw00hm0QwCMzhBB8UAuJX6DzpQywzeIHzi4kCclAVzSvIxJUIndPrEVBv1XnZByG97FRNpqibUKd1QH_EdWo9GSEbpq6EcHjR3XcP1hhzrPb__gMpOtAScTH_BRqzNL"
+                src="/images/journal/fabric.png"
                 alt="Journal visual" 
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -33,7 +33,7 @@ export default function Journal() {
           <article className="group cursor-pointer">
             <div className="aspect-square overflow-hidden mb-8 relative">
               <Image 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE4qTVG9oqjGz9l4hvxFmagPtb7PLu4c6BvY9S_vC-_JIv3ezU4G9ZiqzorC3bjRYKuHbOjMXZhfbRXD4mmwQUm3s7vftDELpjMJLNT8_a7bJYBWz-Dzwdr9kp86GakVH6d8wOkPysh2O7SUeevHKEypfTKkRbcw6Ex549392Tq5JMmPMjh0bw8mhXFOM6ppqJ22L3OAA0YFPpVXPVoumSj41yoNKdeq6ZVP54bT-oGlbQSM6u8GgxH4IJhGXItbBHbTC7l4_086N4"
+                src="https://images.unsplash.com/photo-1609235985281-87f5e9c5c84d?w=800&h=800&fit=crop"
                 alt="Journal visual" 
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -48,7 +48,7 @@ export default function Journal() {
           <article className="group cursor-pointer">
             <div className="aspect-square overflow-hidden mb-8 relative">
               <Image 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD1AJa52M7plRenNzWkdZCZhCbHzo_LLeT3BiqqO0LQDv0SdR9TPf1lbFUXHtNH-1Elo5d-0u1j3potVSWlqWr1NexiL3hIt4ZJPXhJpfyLGw5qOeegEkGyB9ebIXjRqkijvxELWSyUgn5L-j5YE09n5wzDBJkOinJinYQSxkc5HFCdJCJ04palIE_9kb2btDSsxlnin-jeUaf7FCfgcBs2x3eJbAl1QXxbWRfWTTH09uj-rQF-Bzj_sYdwzHWROWuSIpGCaLZUaiV"
+                src="https://images.unsplash.com/photo-1505553356144-be1b76ae9770?w=800&h=800&fit=crop"
                 alt="Journal visual" 
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

@@ -6,7 +6,7 @@ export default function HeroSection() {
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image 
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtHZgXv1FmN5pPcNCGYgJW_qaE3h3z7XgivYn8omQoyIeg4m0LcrVnw31VTEubxmtJ417dQjrsHfNkHMCbFtKoR1tBhzwg6fn6oC2uI4Ft1bHokuQ88Gpn8w-jN9tuLcg1IUEevXnXZvM7ENpEz_u68d0NEk8y8jGrRZiyJdltxoLTU5ppBomrekgi-ygUk9wKFXOr9PFt2B4-ISZ8LClnr9VUVnVVz2CbQ-hOTdvnv2tysleaO0Iil77hCVp25CqD6KKSqa3c-4eJ"
+          src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1600&h=900&fit=crop"
           alt="Cinematic high fashion" 
           fill
           sizes="100vw"

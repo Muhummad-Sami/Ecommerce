@@ -296,3 +296,66 @@ body {
     font-size: 24px;
   }
 }
+
+/* =========================
+   HERO VIDEO ANIMATIONS
+========================= */
+.hero-content {
+  animation: heroFadeIn 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-subtitle {
+  animation: heroSubtitleIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroSubtitleIn {
+  from {
+    opacity: 0;
+    letter-spacing: 0.8em;
+  }
+  to {
+    opacity: 1;
+    letter-spacing: 0.4em;
+  }
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  animation: scrollPulse 2.5s ease-in-out infinite;
+}
+
+.scroll-line {
+  animation: scrollLineGrow 2.5s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@keyframes scrollLineGrow {
+  0%, 100% { transform: scaleY(0.6); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+}
+
+/* =========================
+   PRODUCT CARD HOVER
+========================= */
+.product-card {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+}

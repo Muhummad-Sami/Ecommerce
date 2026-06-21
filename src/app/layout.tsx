@@ -19,16 +19,21 @@ const bodoniModa = Bodoni_Moda({
 
 export const metadata: Metadata = {
   title: "AESTHETE - Luxury E-Commerce",
-  description: "Modern curation for the refined individual. Discover luxury fashion, accessories, and curated collections.",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
-  themeColor: "#000000",
+  description:
+    "Modern curation for the refined individual. Discover luxury fashion, accessories, and curated collections.",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" className={`${inter.variable} ${bodoniModa.variable}`}>
       <head>
@@ -36,12 +41,14 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"
         />
+
         <style>{`
           .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
           }
         `}</style>
       </head>
+
       <body className="bg-background text-on-background antialiased selection:bg-secondary-container/30">
         {children}
       </body>
